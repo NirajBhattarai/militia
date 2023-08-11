@@ -6,9 +6,9 @@ import { Resources } from '../classes/Resources';
   templateUrl: './preload.component.html',
   styleUrls: ['./preload.component.scss'],
 })
-export class PreloadComponent  implements AfterViewInit {
+export class PreloadComponent implements AfterViewInit {
 
-   private canvasWrapper: any;
+  private canvasWrapper: any;
   private canvas: any;
   private ctx: any;
   private splashImage?: HTMLImageElement;
@@ -16,7 +16,7 @@ export class PreloadComponent  implements AfterViewInit {
   private resources: any;
   private preloadInterval: any;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
   ngAfterViewInit() {
     this._init();
@@ -33,7 +33,7 @@ export class PreloadComponent  implements AfterViewInit {
     // this.splashImage.src = 'images/splash.png';
     this.splashImage.src = '../assets/images/splash.png';
     this.splashImage.onload = function () {
-        _this.ctx.drawImage(_this.splashImage, 0, 0, _this.canvasWrapper.clientWidth, _this.canvasWrapper.clientHeight);
+      _this.ctx.drawImage(_this.splashImage, 0, 0, _this.canvasWrapper.clientWidth, _this.canvasWrapper.clientHeight);
     };
 
     this.splashAudio = new Audio('../assets/audio/splash.aac');
@@ -48,24 +48,24 @@ export class PreloadComponent  implements AfterViewInit {
     this.resources.addImage('Enemy-1-right', '../assets/images/character/Enemy-1-right.png');
 
     this.resources.addImage('hand_with_gun', '../assets/images/hand_with_gun.png');
-        this.resources.addImage('hand_with_gun_left', '../assets/images/hand_with_gun_left.png');
-        this.resources.addImage('enemy_gun', '../assets/images/enemy_gun.PNG');
-        this.resources.addImage('enemy_gun_left', '../assets/images/enemy_gun_left.PNG');
+    this.resources.addImage('hand_with_gun_left', '../assets/images/hand_with_gun_left.png');
+    this.resources.addImage('enemy_gun', '../assets/images/enemy_gun.PNG');
+    this.resources.addImage('enemy_gun_left', '../assets/images/enemy_gun_left.PNG');
 
-        this.resources.addAudio('intro', '../assets/audio/intro.mp3');
-        this.resources.addAudio('background_music', '../assets/audio/background_music.mp3');
-        this.resources.addAudio('gun_shot', '../assets/audio/gun_shot.mp3');
+    this.resources.addAudio('intro', '../assets/audio/intro.mp3');
+    this.resources.addAudio('background_music', '../assets/audio/background_music.mp3');
+    this.resources.addAudio('gun_shot', '../assets/audio/gun_shot.mp3');
 
-        this.preloadInterval = setInterval(function () {
-            // if(_this.resources.imageLoadedCount == Object.size(_this.resources.images)) {
-            //     _this.splashAudio.pause();
-            //     delete _this.splashAudio;
-            //     clearInterval(_this.preloadInterval);
-            //     new Game(_this.canvas, _this.resources);
-            // }else{
-            //     // console.log('here');
-            // }
-        }, 5000);
+    this.preloadInterval = setInterval(function () {
+      // if(_this.resources.imageLoadedCount == Object.size(_this.resources.images)) {
+      //     _this.splashAudio.pause();
+      //     delete _this.splashAudio;
+      //     clearInterval(_this.preloadInterval);
+      //     new Game(_this.canvas, _this.resources);
+      // }else{
+      //     // console.log('here');
+      // }
+    }, 5000);
 
 
     // ... [rest of your code] ...
